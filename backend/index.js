@@ -21,18 +21,23 @@ app.get('/clients', async (_request, response) => {
   response.status(200).send(clients);
 });
 
-app.get('/clients/:id', async (request, response) => {
-  const { id } = request.params;
+app.get('/clients/:email', async (request, response) => {
+  const { email } = request.params;
   const clients = await getClients();
-  console.log(clients);
-  const wantedClient = clients.filter((client) => client.id === parseInt(id))[0];
-  console.log(wantedClient);
-  response.status(200).send(wantedClient);
+  const wantedClient = clients.filter((client) => client.email === (email))[0];
+  if (wantedClient) response.status(200).send(wantedClient);
 });
 
 app.get('/stocks', async (_request, response) => {
   const stocks = await getStocks();
   response.status(200).send(stocks);
+});
+
+app.get('/stocks/:id', async (request, response) => {
+  const { id } = request.params;
+  const stocks = await getStocks();
+  const wantedStock = stocks.find((stock) => stock.id === parseInt(id));
+  response.status(200).send(wantedStock);
 });
 
 app.listen(PORT, () => {
