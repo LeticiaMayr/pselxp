@@ -38,6 +38,13 @@ function Stocks() {
       >
         Deposito/Retirada
       </button>
+      <div>
+        Disponíveis para investir:
+      </div>
+      <StockList />
+      <div>
+        Minhas ações:
+      </div>
       <StockList />
     </>
   );
