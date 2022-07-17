@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProvider } from "../context/provider";
 import TableLine from "./TableLine";
 
 function ClientStockList() {
+  const [clientStocks, setClientStocks] = useState([]);
+
   const {
-    ClientStockList
+    clientData,
+    stockList
    } = useProvider();
+
+  useEffect(() => {
+    setClientStocks(stockList.filter((stock) => Object.values(clientData.stocks).includes(stock.id)));
+  }, [stockList, clientData.stocks]);
 
   return (
     <table>
@@ -27,7 +34,7 @@ function ClientStockList() {
       </thead>
       <tbody>
         {
-          ClientStockList.map((stock) =>
+          clientStocks.map((stock) =>
             (
               <TableLine
                 key={stock.id}

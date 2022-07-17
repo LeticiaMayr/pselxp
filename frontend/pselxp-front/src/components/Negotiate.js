@@ -3,12 +3,12 @@ import React from "react";
 function Negotiate() {
   return (
     <>
-      <button>
+      <span>
         C
-      </button>
-      <button>
+      </span>
+      <span>
         V
-      </button>
+      </span>
     </>
   );
 };

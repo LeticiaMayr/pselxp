@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useProvider } from "../context/provider";
 import axios from "axios";
 import StockList from "../components/StockList";
+import ClientStockList from "../components/ClientStockList";
 
 function Stocks() {
   const navigate = useNavigate();
@@ -47,11 +48,11 @@ function Stocks() {
         Deposito/Retirada
       </button>
       <div>
-        Disponíveis para investir:
+        Minhas ações:
       </div>
       <StockList />
       <div>
-        Minhas ações:
+        Disponíveis para investir:
       </div>
       <StockList />
     </>
