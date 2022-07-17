@@ -4,7 +4,7 @@ const { readFileSync } = require('fs');
 
 const cors = require('cors');
 
-const PORT = 3009;
+const PORT = 3009;  
 
 // Following functions simulate connection with database
 
@@ -19,6 +19,15 @@ app.use(cors());
 app.get('/clients', async (_request, response) => {
   const clients = await getClients();
   response.status(200).send(clients);
+});
+
+app.get('/clients/:id', async (request, response) => {
+  const { id } = request.params;
+  const clients = await getClients();
+  console.log(clients);
+  const wantedClient = clients.filter((client) => client.id === parseInt(id))[0];
+  console.log(wantedClient);
+  response.status(200).send(wantedClient);
 });
 
 app.get('/stocks', async (_request, response) => {
