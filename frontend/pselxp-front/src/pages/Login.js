@@ -34,8 +34,7 @@ function Login() {
 
   function handleClick(event) {
     event.preventDefault();
-    const now = new Date();
-    console.log(now);
+    const now = new Date(); // Check a better way to store date later
     localStorage.setItem('loginDateAndHour', JSON.stringify(now));
     localStorage.setItem('lastUser', JSON.stringify(emailInput));
     navigate('/stocks');
