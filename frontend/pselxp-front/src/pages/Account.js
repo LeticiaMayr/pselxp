@@ -38,8 +38,10 @@ function Account() {
         onChange={ handleChange }
         value={ value }
       />
-      <BackButton />
-      <ConfirmButton />
+      <div>
+        <BackButton />
+        <ConfirmButton />
+      </div>
     </>
   );
 };
