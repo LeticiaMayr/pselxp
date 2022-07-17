@@ -5,7 +5,11 @@ import ConfirmButton from '../components/ConfirmButton';
 import { useProvider } from '../context/provider';
 
 function Account() {
-  const { balance, setValue, setSelectedService, value } = useProvider()
+  const {
+    balance,
+    value, setValue,
+    setSelectedService,
+   } = useProvider()
 
   function handleChange({ target }) {
     setValue(target.value);
