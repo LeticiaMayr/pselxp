@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { useProvider } from '../context/provider';
 
 function Login() {
   const navigate = useNavigate();
+
+  const { setClientData } = useProvider();
 
   const quotedUser = localStorage.getItem('lastUser')
   const lastUser = quotedUser?.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
@@ -36,6 +40,12 @@ function Login() {
     const now = new Date(); // Check a better way to store date later
     localStorage.setItem('loginDateAndHour', JSON.stringify(now));
     localStorage.setItem('lastUser', JSON.stringify(emailInput));
+    axios.get(`http://localhost:3009/clients/${emailInput}`)
+      .then(res => {
+        setClientData(res.data);
+      }).catch(err => {
+        console.log(err);
+      });
     navigate('/stocks');
   }
 

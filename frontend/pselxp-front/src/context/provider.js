@@ -7,6 +7,7 @@ export const GeneralProvider = (props) => {
   const [value, setValue] = useState('');
   const [selectedService, setSelectedService] = useState('deposit');
   const [stockList, setStockList] = useState([]);
+  const [clientData, setClientData] = useState({});
 
   return (
     <mainContext.Provider value={
@@ -14,7 +15,8 @@ export const GeneralProvider = (props) => {
         balance, setBalance,
         value, setValue,
         selectedService, setSelectedService,
-        stockList, setStockList
+        stockList, setStockList,
+        clientData, setClientData
       }
     }>
       {props.children}
