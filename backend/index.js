@@ -4,6 +4,8 @@ const { readFileSync } = require('fs');
 
 const cors = require('cors');
 
+const PORT = 3009;
+
 // Following functions simulate connection with database
 
 const getClients = async () => JSON.parse(readFileSync('./clients.json'));
@@ -24,6 +26,6 @@ app.get('/stocks', async (_request, response) => {
   response.status(200).send(stocks);
 });
 
-app.listen(3009, () => {
-  console.log('Online');
+app.listen(PORT, () => {
+  console.log(`Online e rodando na porta ${PORT}`);
 });
