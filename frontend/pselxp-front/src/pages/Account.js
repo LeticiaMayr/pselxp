@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "../components/Header";
 
 function Account() {
   return (
-    <div>
-      Conta
-    </div>
+    <>
+      <Header />
+      <div>
+        Conta
+      </div>
+    </>
   );
 };
 

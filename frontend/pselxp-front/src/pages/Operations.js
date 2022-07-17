@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "../components/Header";
 
 function Operations() {
   return (
-    <div>
-      Operações
-    </div>
+    <>
+      <Header />
+      <div>
+        Operações
+      </div>
+    </>
   );
 };
 
