@@ -7,7 +7,7 @@ function Login() {
   const navigate = useNavigate();
 
   const quotedUser = localStorage.getItem('lastUser')
-  const lastUser = quotedUser.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
+  const lastUser = quotedUser?.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
 
   const [emailInput, setEmailInput] = useState(lastUser);
   const [passwordInput, setPasswordInput] = useState('');
