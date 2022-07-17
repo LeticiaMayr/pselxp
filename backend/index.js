@@ -1,6 +1,5 @@
 import express from 'express';
 
-
 const { readFileSync } = require('fs');
 
 // Following functions simulate connection with database
