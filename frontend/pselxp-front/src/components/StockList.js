@@ -1,9 +1,10 @@
 import React from "react";
 import { useProvider } from "../context/provider";
+import TableLine from "./TableLine";
 
-function Header() {
+function StockList() {
   const {
-    setStockList
+    stockList
    } = useProvider();
 
   return (
@@ -14,24 +15,37 @@ function Header() {
       <table>
         <thead>
           <tr>
-            Ação
-          </tr>
-          <tr>
-            Quantidade
-          </tr>
-          <tr>
-            Valor
-          </tr>
-          <tr>
-            Negociar
+            <th>
+              Ação
+            </th>
+            <th>
+              Quantidade
+            </th>
+            <th>
+              Valor
+            </th>
+            <th>
+              Negociar
+            </th>
           </tr>
         </thead>
         <tbody>
-          {setStockList.map(() => <div></div>)}
+          {
+            stockList.map((stock) =>
+              (
+                <TableLine
+                  key={stock.id}
+                  ticker={stock.ticker}
+                  available={stock.available}
+                  value={stock.value}
+                />
+              )
+            )
+          }
         </tbody>
       </table>
     </>
   );
 };
 
-export default Header;
+export default StockList;

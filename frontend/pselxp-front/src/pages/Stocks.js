@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import { useNavigate } from 'react-router-dom'
 import { useProvider } from "../context/provider";
 import axios from "axios";
+import StockList from "../components/StockList";
 
 function Stocks() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ function Stocks() {
       >
         Deposito/Retirada
       </button>
+      <StockList />
     </>
   );
 };
