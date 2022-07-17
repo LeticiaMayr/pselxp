@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 
-const MIN_PASSWORD_LENGTH = 6;
-
 function Login() {
   const navigate = useNavigate();
 
   const quotedUser = localStorage.getItem('lastUser')
   const lastUser = quotedUser?.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
 
-  const [emailInput, setEmailInput] = useState(lastUser);
+  const [emailInput, setEmailInput] = useState(lastUser? lastUser : ''); // Added ternary so that on first use there's no change on type from undefined to string
   const [passwordInput, setPasswordInput] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
+    const MIN_PASSWORD_LENGTH = 6;
     const emailRegex = /\S+@\S+\.com/;
 
-    if (emailRegex.test(emailInput) && passwordInput.length > MIN_PASSWORD_LENGTH) {
+    if (emailRegex.test(emailInput) && passwordInput.length >= MIN_PASSWORD_LENGTH) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
