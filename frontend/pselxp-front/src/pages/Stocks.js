@@ -8,8 +8,8 @@ function Stocks() {
   const navigate = useNavigate();
 
   const {
-    stockList, setStockList
-   } = useProvider()
+    setStockList
+   } = useProvider();
 
   useEffect(() => {
     axios.get('http://localhost:3009/stocks')
