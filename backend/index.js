@@ -2,6 +2,8 @@ const express = require('express');
 
 const { readFileSync } = require('fs');
 
+const cors = require('cors');
+
 // Following functions simulate connection with database
 
 const getClients = async () => JSON.parse(readFileSync('./clients.json'));
@@ -10,6 +12,7 @@ const getStocks = async () => JSON.parse(readFileSync('./stocks.json'));
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/clients', async (_request, response) => {
   const clients = await getClients();
