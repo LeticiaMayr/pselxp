@@ -1,4 +1,5 @@
 import React from "react";
+import Negotiate from "./Negotiate";
 
 function TableLine(props) {
   const { available, ticker, value } = props;
@@ -13,6 +14,7 @@ function TableLine(props) {
       <td>
         {value}
       </td>
+      <Negotiate />
     </tr>
   );
 };
