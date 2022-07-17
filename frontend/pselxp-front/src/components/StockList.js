@@ -19,10 +19,10 @@ function StockList() {
               Ação
             </th>
             <th>
-              Quantidade
+              Qtde
             </th>
             <th>
-              Valor
+              Valor (R$)
             </th>
             <th>
               Negociar
