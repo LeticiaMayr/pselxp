@@ -1,10 +1,20 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Negotiate() {
+  const navigate = useNavigate();
+
+  function handleClick(event) {
+    event.preventDefault();
+    navigate('/operations');
+  }
+  
   return (
-    <button>
+    <button
+      onClick={ handleClick }
+    >
       <span>
-        C
+        C/
       </span>
       <span>
         V
