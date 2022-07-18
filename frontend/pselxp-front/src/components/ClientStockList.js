@@ -11,7 +11,6 @@ function ClientStockList() {
   } = useProvider();
 
   useEffect(() => {
-    console.log(clientData, stockList);
     const possessedStocks = clientData.stocks ? Object.keys(clientData.stocks).map((key) => parseInt(key)) : [] // Ids come as strings so had to add this extra step
     setClientStocks(stockList.filter((stock) => possessedStocks.includes(stock.id)));
   }, [clientData.stocks, stockList, clientData]);
