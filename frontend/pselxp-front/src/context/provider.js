@@ -7,7 +7,6 @@ export const GeneralProvider = (props) => {
   const [value, setValue] = useState('');
   const [selectedService, setSelectedService] = useState('deposit');
   const [stockList, setStockList] = useState([]);
-  const [ClientStockList, setClientStockList] = useState([]);
   const [clientData, setClientData] = useState({});
 
   return (
@@ -17,7 +16,6 @@ export const GeneralProvider = (props) => {
         value, setValue,
         selectedService, setSelectedService,
         stockList, setStockList,
-        ClientStockList, setClientStockList,
         clientData, setClientData
       }
     }>

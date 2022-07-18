@@ -8,11 +8,13 @@ function ClientStockList() {
   const {
     clientData,
     stockList
-   } = useProvider();
+  } = useProvider();
 
   useEffect(() => {
-    setClientStocks(stockList.filter((stock) => Object.values(clientData.stocks).includes(stock.id)));
-  }, [stockList, clientData.stocks]);
+    console.log(clientData, stockList);
+    const possessedStocks = clientData.stocks ? Object.keys(clientData.stocks).map((key) => parseInt(key)) : [] // Ids come as strings so had to add this extra step
+    setClientStocks(stockList.filter((stock) => possessedStocks.includes(stock.id)));
+  }, [clientData.stocks, stockList, clientData]);
 
   return (
     <table>

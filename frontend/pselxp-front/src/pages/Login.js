@@ -6,7 +6,7 @@ import { useProvider } from '../context/provider';
 function Login() {
   const navigate = useNavigate();
 
-  const { setClientData } = useProvider();
+  const { setClientData, setStockList } = useProvider();
 
   const quotedUser = localStorage.getItem('lastUser')
   const lastUser = quotedUser?.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
@@ -45,7 +45,13 @@ function Login() {
         setClientData(res.data);
       }).catch(err => {
         console.log(err);
-      });
+    });
+    axios.get('http://localhost:3009/stocks')
+      .then(res => {
+        setStockList(res.data);
+      }).catch(err => {
+        console.log(err);
+    });
     navigate('/stocks');
   }
 
