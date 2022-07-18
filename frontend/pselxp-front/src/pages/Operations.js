@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import BackButton from '../components/BackButton';
 
 function Operations() {
   return (
@@ -8,6 +9,7 @@ function Operations() {
       <div>
         Operações
       </div>
+      <BackButton />
     </>
   );
 };
