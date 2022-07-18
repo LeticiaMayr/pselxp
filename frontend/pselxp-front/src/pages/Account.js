@@ -3,17 +3,24 @@ import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import ConfirmButton from '../components/ConfirmButton';
 import { useProvider } from '../context/provider';
+import { useEffect } from 'react';
 
 function Account() {
   const {
-    balance,
+    balance, setBalance,
     value, setValue,
     setSelectedService,
+    clientData,
    } = useProvider()
 
   function handleChange({ target }) {
     setValue(target.value);
   }
+
+  useEffect(() => {
+    console.log(clientData.money);
+    setBalance(clientData.money);
+  });
 
   return (
     <>
