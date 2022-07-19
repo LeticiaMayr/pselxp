@@ -47,9 +47,24 @@ app.get('/stocks/:id', async (request, response) => {
 
 app.put('/account/:id', async (request, response) => {
   const { id } = request.params;
-  const { balance } = request.body;
+  const { newBalance } = request.body;
   const clients = await getClients();
-  response.status(200).send('se a lenda dessa paixão');
+
+  const wantedClient = clients.find((client) => client.id === parseInt(id));
+  wantedClient.money = newBalance;
+
+  const newClientFile = clients.map((client) => {
+    if (client.id === id) {
+      return wantedClient;
+    }
+    return client;
+  });
+
+  console.log(newClientFile);
+
+  await updateClientAccount(newClientFile);
+
+  response.status(200).send(newBalance);
 });
 
 app.listen(PORT, () => {
