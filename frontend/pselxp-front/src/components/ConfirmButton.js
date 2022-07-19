@@ -3,7 +3,7 @@ import { useProvider } from "../context/provider";
 import axios from "axios";
 
 function ConfirmButton() {
-  const { balance, setBalance, selectedService, value, clientData } = useProvider();
+  const { balance, selectedService, value, clientData, setClientData } = useProvider();
 
   function handleAccount() {
     const { id } = clientData;
@@ -14,7 +14,7 @@ function ConfirmButton() {
 
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
-          setBalance(res.data.newBalance);
+          setClientData(res.data);
         }).catch(err => {
           console.log(err);
         });
@@ -25,7 +25,7 @@ function ConfirmButton() {
 
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
-          setBalance(res.data.newBalance);
+          setClientData(res.data);
         }).catch(err => {
           console.log(err);
         });

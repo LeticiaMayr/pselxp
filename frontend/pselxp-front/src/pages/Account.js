@@ -18,7 +18,6 @@ function Account() {
   }
 
   useEffect(() => {
-    console.log(clientData.money);
     setBalance(clientData.money);
   });
 
@@ -26,7 +25,7 @@ function Account() {
     <>
       <Header/>
       <div>
-        Saldo em conta: {balance}
+        Saldo em conta: R$ {balance}
       </div>
       <div>
         <button
