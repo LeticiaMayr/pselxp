@@ -1,12 +1,17 @@
 const express = require('express');
 
-const { readFileSync } = require('fs');
+const { readFileSync, writeFileSync } = require('fs');
 
 const cors = require('cors');
+const { response } = require('express');
 
-const PORT = 3009;  
+const PORT = 3009;
 
 // Following functions simulate connection with database
+
+const updateClientAccount = async (file) => {
+  writeFileSync('./clients.json', JSON.stringify(file));
+};
 
 const getClients = async () => JSON.parse(readFileSync('./clients.json'));
 const getStocks = async () => JSON.parse(readFileSync('./stocks.json'));
@@ -38,6 +43,13 @@ app.get('/stocks/:id', async (request, response) => {
   const stocks = await getStocks();
   const wantedStock = stocks.find((stock) => stock.id === parseInt(id));
   response.status(200).send(wantedStock);
+});
+
+app.put('/account/:id', async (request, response) => {
+  const { id } = request.params;
+  const { balance } = request.body;
+  const clients = await getClients();
+  response.status(200).send('se a lenda dessa paixão');
 });
 
 app.listen(PORT, () => {
