@@ -6,10 +6,10 @@ function TableLine(props) {
   return (
     <tr>
       <td>
-        {available}
+        {ticker}
       </td>
       <td>
-        {ticker}
+        {available}
       </td>
       <td>
         {value}
