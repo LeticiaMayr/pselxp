@@ -1,6 +1,7 @@
 import React from "react";
 import { useProvider } from "../context/provider";
 import TableLine from "./TableLine";
+import StocksTableHead from "./StocksTableHead";
 
 function StockList() {
   const {
@@ -11,15 +12,7 @@ function StockList() {
     <table>
       <thead>
         <tr>
-          <th>
-            Ação
-          </th>
-            <th>
-            Qtde
-          </th>
-          <th>
-            Valor (R$)
-          </th>
+          <StocksTableHead />
           <th>
             Negociar
           </th>
