@@ -4,7 +4,7 @@ export const mainContext = React.createContext({});
 
 export const GeneralProvider = (props) => {
   const [balance, setBalance] = useState(0);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(0);
   const [selectedService, setSelectedService] = useState('deposit');
   const [stockList, setStockList] = useState([]);
   const [clientData, setClientData] = useState({});

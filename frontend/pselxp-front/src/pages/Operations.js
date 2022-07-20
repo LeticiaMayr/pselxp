@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import BackButton from '../components/BackButton';
+import DepositWithdraw from "../components/DepositWithdraw";
 
 function Operations() {
   return (
@@ -10,6 +11,7 @@ function Operations() {
         Operações
       </div>
       <BackButton />
+      <DepositWithdraw />
     </>
   );
 };
