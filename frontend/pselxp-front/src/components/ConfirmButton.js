@@ -6,6 +6,9 @@ function ConfirmButton() {
   const { balance, selectedService, value, clientData, setClientData } = useProvider();
 
   function handleAccount() {
+    if (selectedService === 'withdraw' && balance < value) alert('Insira um valor abaixo ou igual ao seu saldo!');
+    if (value === '') alert('Insira algum valor para depósito ou saque!');
+    if (value <= 0 && value !== '') alert('Insira algum valor maior que 0!');
     const { id } = clientData;
     if (typeof value === 'string' && value !== '') {
       if (selectedService === 'deposit') {
@@ -31,8 +34,7 @@ function ConfirmButton() {
         });
       };
     };
-    if (selectedService === 'withdraw' && balance < value) alert('Insira um valor adequado');
-  }
+  };
 
   return (
     <button

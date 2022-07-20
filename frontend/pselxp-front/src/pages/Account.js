@@ -15,6 +15,7 @@ function Account() {
 
   function handleChange({ target }) {
     setValue(target.value);
+    console.log(typeof target.value);
   }
 
   useEffect(() => {
