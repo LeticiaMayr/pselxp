@@ -3,7 +3,6 @@ const express = require('express');
 const { readFileSync, writeFileSync } = require('fs');
 
 const cors = require('cors');
-const { response } = require('express');
 
 const PORT = 3009;
 
@@ -11,6 +10,10 @@ const PORT = 3009;
 
 const updateClientAccount = async (file) => {
   writeFileSync('./clients.json', JSON.stringify(file));
+};
+
+const updateStockAmount = async (file) => {
+  writeFileSync('./stocks.json', JSON.stringify(file));
 };
 
 const getClients = async () => JSON.parse(readFileSync('./clients.json'));
@@ -63,6 +66,26 @@ app.put('/account/:id', async (request, response) => {
   await updateClientAccount(newClientFile);
 
   response.status(200).send(wantedClient);
+});
+
+app.put('/stocks/:id', async (request, response) => {
+  const { id } = request.params;
+  const { purchaseAmount } = request.body;
+  const stocks = await getStocks();
+
+  const wantedStock = stocks.find((stock) => stock.id === parseInt(id));
+  wantedStock.available = wantedStock.available - purchaseAmount;
+
+  const newStockFile = stocks.map((stock) => {
+    if (stock.id === id) {
+      return wantedStock;
+    }
+    return stock;
+  });
+
+  await updateStockAmount(newStockFile);
+
+  response.status(200).send(wantedStock);
 });
 
 app.listen(PORT, () => {
