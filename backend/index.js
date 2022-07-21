@@ -60,11 +60,9 @@ app.put('/account/:id', async (request, response) => {
     return client;
   });
 
-  console.log(newClientFile);
-
   await updateClientAccount(newClientFile);
 
-  response.status(200).send(newBalance);
+  response.status(200).send(wantedClient);
 });
 
 app.listen(PORT, () => {
