@@ -3,7 +3,6 @@ import Negotiate from "./Negotiate";
 
 function TableLine(props) {
   const { available, ticker, value, clientStock, id } = props;
-  console.log(id);
   return (
     <tr>
       <td>
