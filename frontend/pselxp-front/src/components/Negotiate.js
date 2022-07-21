@@ -1,11 +1,20 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { useProvider } from "../context/provider";
 
-function Negotiate() {
+function Negotiate(props) {
+  const { available, ticker, value, clientStock } = props;
   const navigate = useNavigate();
+
+  const { setWantedStock } = useProvider()
 
   function handleClick(event) {
     event.preventDefault();
+    setWantedStock({
+      available: available,
+      ticker: ticker,
+      value: value
+    });
     navigate('/operations');
   }
   
@@ -14,11 +23,9 @@ function Negotiate() {
       onClick={ handleClick }
     >
       <span>
-        C/
+        C
       </span>
-      <span>
-        V
-      </span>
+      {clientStock ? <span>/V</span> : null}
     </button>
   );
 };

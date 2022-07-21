@@ -24,6 +24,7 @@ function StockList() {
             (
               <TableLine
                 key={stock.id}
+                clientStock={false}
                 ticker={stock.ticker}
                 available={stock.available}
                 value={stock.value}
