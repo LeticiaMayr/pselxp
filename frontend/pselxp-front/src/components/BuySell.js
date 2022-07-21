@@ -18,6 +18,7 @@ function BuySell() {
     event.preventDefault();
     if (event.target.id === 'button-buy') {
       console.log(`COMPREY ${assetManipulation.buy} AÇÕES`);
+      console.log(wantedStock);
     };
     if (event.target.id === 'button-sell') {
       console.log(`VENDY ${assetManipulation.sell} AÇÕES`);

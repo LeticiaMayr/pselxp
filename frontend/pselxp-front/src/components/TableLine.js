@@ -2,7 +2,8 @@ import React from "react";
 import Negotiate from "./Negotiate";
 
 function TableLine(props) {
-  const { available, ticker, value, clientStock } = props;
+  const { available, ticker, value, clientStock, id } = props;
+  console.log(id);
   return (
     <tr>
       <td>
@@ -15,6 +16,7 @@ function TableLine(props) {
         {value}
       </td>
       <Negotiate
+        id={id}
         available={available}
         ticker={ticker}
         value={value}

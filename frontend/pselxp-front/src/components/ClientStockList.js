@@ -43,6 +43,7 @@ function ClientStockList() {
                 ticker={stock.ticker}
                 available={stock.available}
                 value={stock.value}
+                id={stock.id}
               />
             )
           )

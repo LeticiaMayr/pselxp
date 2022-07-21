@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useProvider } from "../context/provider";
 
 function Negotiate(props) {
-  const { available, ticker, value, clientStock } = props;
+  const { available, ticker, value, clientStock, id } = props;
   const navigate = useNavigate();
 
   const { setWantedStock } = useProvider()
@@ -11,6 +11,7 @@ function Negotiate(props) {
   function handleClick(event) {
     event.preventDefault();
     setWantedStock({
+      id: id,
       available: available,
       ticker: ticker,
       value: value,

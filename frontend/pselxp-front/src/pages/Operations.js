@@ -9,6 +9,7 @@ import BuySell from "../components/BuySell";
 
 function Operations() {
   const { wantedStock } = useProvider();
+  console.log(wantedStock);
   return (
     <>
       <Header />
