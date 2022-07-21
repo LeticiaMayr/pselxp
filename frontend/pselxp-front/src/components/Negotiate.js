@@ -13,7 +13,8 @@ function Negotiate(props) {
     setWantedStock({
       available: available,
       ticker: ticker,
-      value: value
+      value: value,
+      clientStock: clientStock
     });
     navigate('/operations');
   }

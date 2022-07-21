@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useProvider } from "../context/provider";
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
+  const { wantedStock } = useProvider();
+  console.log(wantedStock);
 
   function handleChange({ target }) {
     if (target.id === 'buy') {
@@ -26,18 +29,20 @@ function BuySell() {
             />
         </label>
       </div>
-      <div>
-        <label htmlFor='sell'>
-          Vender
-          <input
-            id='sell'
-            type='number'
-            value={ assetManipulation.sell }
-            onChange={ handleChange }
-            placeholder={'Informe o valor'}
-            />
-        </label>
-      </div>
+      {wantedStock.clientStock ? 
+        <div>
+          <label htmlFor='sell'>
+            Vender
+            <input
+              id='sell'
+              type='number'
+              value={ assetManipulation.sell }
+              onChange={ handleChange }
+              placeholder={'Informe o valor'}
+              />
+          </label>
+        </div>
+        : null}
     </form>
   );
 };
