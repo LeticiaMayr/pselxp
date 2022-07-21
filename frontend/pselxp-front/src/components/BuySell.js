@@ -4,7 +4,6 @@ import { useProvider } from "../context/provider";
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
   const { wantedStock } = useProvider();
-  console.log(wantedStock);
 
   function handleChange({ target }) {
     if (target.id === 'buy') {
