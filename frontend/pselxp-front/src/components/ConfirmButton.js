@@ -9,8 +9,11 @@ function ConfirmButton() {
     if (selectedService === 'withdraw' && balance < value) alert('Insira um valor abaixo ou igual ao seu saldo!');
     if (value === '') alert('Insira algum valor para depósito ou saque!');
     if (value <= 0 && value !== '') alert('Insira algum valor maior que 0!');
+
     const { id } = clientData;
+
     if (typeof value === 'string' && value !== '') {
+
       if (selectedService === 'deposit') {
         const untreatedBalance = balance + parseFloat(value);
         const newBalance = Math.round(untreatedBalance * 100)/100;
@@ -22,7 +25,8 @@ function ConfirmButton() {
           console.log(err);
         });
       };
-      if (selectedService === 'withdraw' && balance >= value) {
+
+      if (selectedService === 'withdraw') {
         const untreatedBalance = balance - parseFloat(value);
         const newBalance = Math.round(untreatedBalance * 100)/100;
 
