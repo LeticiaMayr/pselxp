@@ -12,7 +12,7 @@ function Operations() {
   return (
     <>
       <Header />
-      <h2>Comprar/Vender Ação</h2>
+      <h3>Comprar/Vender Ação</h3>
       <table>
         <thead>
           <StocksTableHead />
