@@ -13,12 +13,27 @@ function BuySell() {
       setAssetManipulation({ buy: assetManipulation.buy, sell: target.value });
     };
   };
+
+  function handleClick(event) {
+    event.preventDefault();
+    if (event.target.id === 'button-buy') {
+      console.log(`COMPREY ${assetManipulation.buy} AÇÕES`);
+    };
+    if (event.target.id === 'button-sell') {
+      console.log(`VENDY ${assetManipulation.sell} AÇÕES`);
+    }
+  };
   
   return (
     <form>
       <div>
         <label htmlFor='buy'>
-          Comprar
+          <button
+            id='button-buy'
+            onClick={ handleClick }
+          >
+            Comprar
+          </button>
           <input
             id='buy'
             type='number'
@@ -31,7 +46,12 @@ function BuySell() {
       {wantedStock.clientStock ? 
         <div>
           <label htmlFor='sell'>
-            Vender
+            <button
+              id='button-sell'
+              onClick={ handleClick }
+            >
+              Vender
+            </button>
             <input
               id='sell'
               type='number'
