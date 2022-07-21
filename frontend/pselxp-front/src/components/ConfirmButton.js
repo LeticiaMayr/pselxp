@@ -42,14 +42,13 @@ function ConfirmButton() {
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
           setClientData(res.data);
+          swal({
+            icon: 'success',
+            title: 'Seu depósito foi efetuado com sucesso!',
+            timer: 2500,
+          });
         }).catch(err => {
           console.log(err);
-        });
-
-        swal({
-          icon: 'success',
-          title: 'Seu depósito foi efetuado com sucesso!',
-          timer: 2500,
         });
       };
 
@@ -60,15 +59,15 @@ function ConfirmButton() {
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
           setClientData(res.data);
+          swal({
+            icon: 'success',
+            title: 'Seu saque foi efetuado com sucesso!',
+            timer: 2500,
+          });
         }).catch(err => {
           console.log(err);
         });
 
-        swal({
-          icon: 'success',
-          title: 'Seu saque foi efetuado com sucesso!',
-          timer: 2500,
-        });
       };
     };
   };
