@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "../components/Header";
+import { useProvider } from "../context/provider";
 import BackButton from '../components/BackButton';
 import DepositWithdraw from "../components/DepositWithdraw";
 import StocksTableHead from "../components/StocksTableHead";
 import OperationsTableLine from "../components/OperationsTableLine";
-import { useProvider } from "../context/provider";
+import BuySell from "../components/BuySell";
 
 function Operations() {
   const { wantedStock } = useProvider();
@@ -24,8 +25,11 @@ function Operations() {
           />
         </tbody>
       </table>
-      <BackButton />
-      <DepositWithdraw />
+      <BuySell />
+      <div>
+        <BackButton />
+        <DepositWithdraw />
+      </div>
     </>
   );
 };
