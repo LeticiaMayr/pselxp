@@ -1,17 +1,19 @@
 import React from "react";
 import ClientBalance from './ClientBalance';
-import { Container, Form, Button, Col, Row } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
+import { useProvider } from "../context/provider";
 
 function Header() {
-  const quotedUser = localStorage.getItem('lastUser')
-  const lastUser = quotedUser.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
+  const { clientData } = useProvider();
+  const user = clientData.user;
+
   return (
-    <Container className='d-flex text-bg-dark rounded'>
+    <Container className='d-flex text-bg-dark rounded mb-3'>
       <Col>
         <ClientBalance />
       </Col>
-      <Col>
-        Usuário: {lastUser}
+      <Col className='text-end'>
+        Usuário: {user}
       </Col>
     </Container>
   );

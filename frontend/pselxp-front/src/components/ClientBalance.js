@@ -8,7 +8,7 @@ function ClientBalance() {
 
   return (
     <div>
-        Saldo em conta: R$ {balance}
+        Saldo: R$ {balance}
     </div>
   );
 };

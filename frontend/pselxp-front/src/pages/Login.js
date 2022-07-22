@@ -7,7 +7,7 @@ import axios from "axios";
 function Login() {
   const navigate = useNavigate();
 
-  const { setClientData, setStockList } = useProvider();
+  const { setClientData, setStockList, setBalance } = useProvider();
 
   const quotedUser = localStorage.getItem('lastUser');
   const lastUser = quotedUser?.slice(1, quotedUser.length - 1); // Remove quotes from email required from local storage
@@ -38,13 +38,13 @@ function Login() {
 
   function handleClick(event) {
     event.preventDefault();
-    console.log(emailInput, passwordInput);
     const now = new Date(); // Check a better way to store date later
     localStorage.setItem('loginDateAndHour', JSON.stringify(now));
     localStorage.setItem('lastUser', JSON.stringify(emailInput));
     axios.get(`http://localhost:3009/clients/${emailInput}`)
       .then(res => {
         setClientData(res.data);
+        setBalance(res.data.money);
       }).catch(err => {
         console.log(err);
     });
@@ -81,7 +81,7 @@ function Login() {
           </Row>
           <Row className='d-flex justify-content-center mb-3 rounded'>
             <Button
-              className='d-flex align-self-center justify-content-center text-bg-dark w-50'
+              className='align-self-center justify-content-center text-bg-dark w-50'
               type='submit'
               disabled={ isDisabled }
               onClick={ handleClick }
