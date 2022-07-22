@@ -67,7 +67,6 @@ function ConfirmButton() {
         }).catch(err => {
           console.log(err);
         });
-
       };
     };
   };

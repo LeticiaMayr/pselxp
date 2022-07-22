@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useProvider } from "../context/provider";
+import axios from "axios";
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { wantedStock } = useProvider();
+  const { wantedStock, clientData } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy') {
@@ -19,10 +20,28 @@ function BuySell() {
     if (event.target.id === 'button-buy') {
       console.log(`COMPREY ${assetManipulation.buy} AÇÕES`);
       console.log(wantedStock);
+      axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
+          {
+            purchaseAmount: assetManipulation.buy,
+            clientId: clientData.id,
+          }
+        )
+        .then(res => {
+          console.log(res.data);
+        }).catch(err => {
+          console.log(err);
+        });
     };
+
     if (event.target.id === 'button-sell') {
       console.log(`VENDY ${assetManipulation.sell} AÇÕES`);
-    }
+      axios.put(`http://localhost:3009/stocks/${wantedStock.id}`, { purchaseAmount: - assetManipulation.sell })
+        .then(res => {
+          console.log(res.data);
+        }).catch(err => {
+          console.log(err);
+        });
+    };
   };
   
   return (
