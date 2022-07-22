@@ -92,12 +92,16 @@ app.put('/stocks/:id', async (request, response) => {
 
   const wantedClient = clients.find((client) => client.id === clientId);
 
+  console.log(wantedClient);
+
   if (!wantedClient.stocks[id]) {
     wantedClient.stocks[id] = purchaseAmount;
+    wantedClient.money += purchaseAmount * wantedStock.value;
   };
 
   if(wantedClient.stocks[id]) {
     wantedClient.stocks[id] += purchaseAmount;
+    wantedClient.money -= purchaseAmount * wantedStock.value;
   };
 
   const newClientFile = clients.map((client) => {
