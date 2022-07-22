@@ -70,8 +70,11 @@ app.put('/account/:id', async (request, response) => {
 
 app.put('/stocks/:id', async (request, response) => {
   const { id } = request.params;
-  const { purchaseAmount } = request.body;
+  const { purchaseAmount, clientId } = request.body;
   const stocks = await getStocks();
+  const clients = await getClients();
+
+  // This part makes the necessary changes on assets
 
   const wantedStock = stocks.find((stock) => stock.id === parseInt(id));
   wantedStock.available = wantedStock.available - purchaseAmount;
@@ -84,6 +87,20 @@ app.put('/stocks/:id', async (request, response) => {
   });
 
   await updateStockAmount(newStockFile);
+
+  // This part makes necessary changes on clients
+
+  const wantedClient = clients.find((client) => client.id === clientId);
+  wantedClient.stocks[id] += purchaseAmount;
+
+  const newClientFile = clients.map((client) => {
+    if (client.id === clientId) {
+      return wantedClient;
+    }
+    return client;
+  });
+
+  await updateClientAccount(newClientFile);
 
   response.status(200).send(wantedStock);
 });
