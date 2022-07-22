@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProvider } from '../context/provider';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Col, Row } from 'react-bootstrap';
 import axios from "axios";
 
 function Login() {
@@ -38,6 +38,7 @@ function Login() {
 
   function handleClick(event) {
     event.preventDefault();
+    console.log(emailInput, passwordInput);
     const now = new Date(); // Check a better way to store date later
     localStorage.setItem('loginDateAndHour', JSON.stringify(now));
     localStorage.setItem('lastUser', JSON.stringify(emailInput));
@@ -58,29 +59,38 @@ function Login() {
 
   return (
     <Container>
-      <form>
-        <input
-          id='email'
-          type='email'
-          value={ emailInput }
-          onChange={ handleChange }
-          placeholder='E-mail'
-          />
-        <input
-          id='password'
-          type='password'
-          value={ passwordInput }
-          onChange={ handleChange }
-          placeholder='Senha'
-        />
-        <button
-          type='submit'
-          disabled={ isDisabled }
-          onClick={ handleClick }
-        >
-          Acessar
-        </button>
-      </form>
+      <Form className='d-flex align-items-center min-vh-100'>
+        <Col>
+          <Row className='mb-3'>
+            <input
+              id='email'
+              type='email'
+              value={ emailInput }
+              onChange={ handleChange }
+              placeholder='E-mail'
+              />
+          </Row>
+          <Row className='mb-3 rounded'>
+            <input
+              id='password'
+              type='password'
+              value={ passwordInput }
+              onChange={ handleChange }
+              placeholder='Senha'
+            />
+          </Row>
+          <Row className='mb-3 text-bg-dark rounded'>
+            <Button
+              className='text-bg-dark'
+              type='submit'
+              disabled={ isDisabled }
+              onClick={ handleClick }
+              >
+              Acessar
+            </Button>
+          </Row>
+        </Col>
+      </Form>
     </Container>
   );
 };
