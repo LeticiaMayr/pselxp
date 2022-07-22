@@ -57,35 +57,31 @@ function Login() {
   }
 
   return (
-    <form>
-      <label htmlFor='email'>
-        E-mail:
+    <Container>
+      <form>
         <input
           id='email'
           type='email'
           value={ emailInput }
           onChange={ handleChange }
-        />
-      </label>
-
-      <label htmlFor='password'>
-        Senha:
+          placeholder='E-mail'
+          />
         <input
           id='password'
           type='password'
           value={ passwordInput }
           onChange={ handleChange }
+          placeholder='Senha'
         />
-      </label>
-
-      <button
-        type='submit'
-        disabled={ isDisabled }
-        onClick={ handleClick }
-      >
-        Acessar
-      </button>
-    </form>
+        <button
+          type='submit'
+          disabled={ isDisabled }
+          onClick={ handleClick }
+        >
+          Acessar
+        </button>
+      </form>
+    </Container>
   );
 };
 
