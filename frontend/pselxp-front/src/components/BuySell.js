@@ -4,7 +4,7 @@ import axios from "axios";
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { wantedStock, clientData } = useProvider();
+  const { wantedStock, clientData, setStockList, setClientData } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy') {
@@ -18,11 +18,9 @@ function BuySell() {
   function handleClick(event) {
     event.preventDefault();
     if (event.target.id === 'button-buy') {
-      console.log(`COMPREY ${assetManipulation.buy} AÇÕES`);
-      console.log(wantedStock);
       axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
           {
-            purchaseAmount: assetManipulation.buy,
+            purchaseAmount: parseInt(assetManipulation.buy),
             clientId: clientData.id,
           }
         )
@@ -35,13 +33,33 @@ function BuySell() {
 
     if (event.target.id === 'button-sell') {
       console.log(`VENDY ${assetManipulation.sell} AÇÕES`);
-      axios.put(`http://localhost:3009/stocks/${wantedStock.id}`, { purchaseAmount: - assetManipulation.sell })
+      console.log(-assetManipulation.sell)
+      axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
+        {
+          purchaseAmount: parseInt(- assetManipulation.sell),
+          clientId: clientData.id,
+        }
+      )
         .then(res => {
           console.log(res.data);
         }).catch(err => {
           console.log(err);
         });
     };
+
+    axios.get(`http://localhost:3009/clients/${clientData.email}`)
+      .then(res => {
+        setClientData(res.data);
+      }).catch(err => {
+        console.log(err);
+    });
+
+    axios.get('http://localhost:3009/stocks')
+      .then(res => {
+        setStockList(res.data);
+      }).catch(err => {
+        console.log(err);
+    });
   };
   
   return (

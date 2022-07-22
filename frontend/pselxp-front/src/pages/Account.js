@@ -1,25 +1,19 @@
 import React from 'react';
+import { useProvider } from '../context/provider';
 import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import ConfirmButton from '../components/ConfirmButton';
-import { useProvider } from '../context/provider';
-import { useEffect } from 'react';
 
 function Account() {
   const {
-    balance, setBalance,
+    balance,
     value, setValue,
     setSelectedService,
-    clientData,
    } = useProvider()
 
   function handleChange({ target }) {
     setValue(target.value);
   }
-
-  useEffect(() => {
-    setBalance(clientData.money);
-  });
 
   return (
     <>
