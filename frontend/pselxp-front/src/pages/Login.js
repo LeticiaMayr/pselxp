@@ -70,7 +70,7 @@ function Login() {
               placeholder='E-mail'
               />
           </Row>
-          <Row className='mb-3 rounded'>
+          <Row className='mb-5 rounded'>
             <input
               id='password'
               type='password'
@@ -79,9 +79,9 @@ function Login() {
               placeholder='Senha'
             />
           </Row>
-          <Row className='mb-3 text-bg-dark rounded'>
+          <Row className='d-flex justify-content-center mb-3 rounded'>
             <Button
-              className='text-bg-dark'
+              className='d-flex align-self-center justify-content-center text-bg-dark w-50'
               type='submit'
               disabled={ isDisabled }
               onClick={ handleClick }

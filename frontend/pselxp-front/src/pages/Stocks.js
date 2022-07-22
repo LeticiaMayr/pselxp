@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import StockList from "../components/StockList";
 import ClientStockList from "../components/ClientStockList";
 import DepositWithdraw from "../components/DepositWithdraw";
-import ClientBalance from "../components/ClientBalance";
 import { useProvider } from "../context/provider";
 
 function Stocks() {
@@ -14,10 +13,6 @@ function Stocks() {
   return (
     <>
       <Header />
-      <ClientBalance />
-      <div>
-        ações
-      </div>
       <div>
         Minhas ações:
       </div>

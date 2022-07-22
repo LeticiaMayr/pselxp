@@ -2,11 +2,9 @@ import React, { useEffect } from "react";
 import { useProvider } from "../context/provider";
 
 function ClientBalance() {
-  const {balance, setBalance, clientData} = useProvider();
+  const { balance } = useProvider();
 
-  useEffect(() => {
-    setBalance(clientData.money);
-  });
+  useEffect(() => {}, [balance]);
 
   return (
     <div>

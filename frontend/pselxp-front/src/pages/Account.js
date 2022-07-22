@@ -3,7 +3,6 @@ import { useProvider } from '../context/provider';
 import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import ConfirmButton from '../components/ConfirmButton';
-import ClientBalance from '../components/ClientBalance';
 
 function Account() {
   const {
@@ -18,7 +17,6 @@ function Account() {
   return (
     <>
       <Header/>
-      <ClientBalance />
       <div>
         <button
           id='deposit'

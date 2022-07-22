@@ -6,7 +6,6 @@ import DepositWithdraw from "../components/DepositWithdraw";
 import StocksTableHead from "../components/StocksTableHead";
 import OperationsTableLine from "../components/OperationsTableLine";
 import BuySell from "../components/BuySell";
-import ClientBalance from "../components/ClientBalance";
 
 function Operations() {
   const { wantedStock, stockList, clientData } = useProvider();
@@ -16,7 +15,6 @@ function Operations() {
   return (
     <>
       <Header />
-      <ClientBalance />
       <h3>Comprar/Vender Ação</h3>
       <table>
         <thead>
