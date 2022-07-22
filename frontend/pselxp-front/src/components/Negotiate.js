@@ -19,15 +19,17 @@ function Negotiate(props) {
     });
     navigate('/operations');
   }
+
+  const sellColor = clientStock ? 'text-bg-primary ' : '';
   
   return (
     <button
       onClick={ handleClick }
     >
-      <span className='text-center'>
+      <span className='text-bg-success text-center p-2 rounded-circle'>
         C
       </span>
-      <span className=' text-center ps-3'>
+      <span className={`${sellColor}text-center p-2 rounded-circle`}>
         V
       </span>
     </button>
