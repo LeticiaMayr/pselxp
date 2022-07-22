@@ -10,6 +10,7 @@ import ClientBalance from "../components/ClientBalance";
 
 function Operations() {
   const { wantedStock } = useProvider();
+  
   return (
     <>
       <Header />

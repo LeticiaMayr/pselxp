@@ -20,8 +20,6 @@ function BuySell() {
     event.preventDefault();
     const { target } = event;
 
-    console.log(assetManipulation[target.id]);
-
     if (assetManipulation[target.id] <= 0) {
       swal({
         icon: 'error',
@@ -31,8 +29,9 @@ function BuySell() {
       });
     };
 
-    if (target.value > 0) {
-      if (target.id === 'button-buy' && (target.value * wantedStock.value) > balance) {
+    if (assetManipulation[target.id] > 0) {
+      if (target.id === 'buy' && (assetManipulation[target.id] * wantedStock.value) <= balance) {
+        console.log(`COMPREY ${assetManipulation.buy} AÇÕES`);
         axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
           {
             purchaseAmount: parseInt(assetManipulation.buy),
@@ -44,9 +43,8 @@ function BuySell() {
           });
       };
 
-      if (target.id === 'button-sell' && clientData.stocks[wantedStock.id] > target.value) {
+      if (target.id === 'sell' && clientData.stocks[wantedStock.id] > assetManipulation[target.id]) {
         console.log(`VENDY ${assetManipulation.sell} AÇÕES`);
-        console.log(-assetManipulation.sell)
         axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
           {
             purchaseAmount: parseInt(- assetManipulation.sell),
