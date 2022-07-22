@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useProvider } from "../context/provider";
 import axios from "axios";
 import swal from "sweetalert";
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { balance, wantedStock, clientData, setStockList, setClientData } = useProvider();
+  const { balance, wantedStock, clientData, setStockList, setClientData, stockList } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy-input') {
@@ -71,6 +71,8 @@ function BuySell() {
       });
     };
   };
+
+  useEffect(() => {}, [stockList, wantedStock, clientData]);
   
   return (
     <form>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import { useProvider } from "../context/provider";
 import BackButton from '../components/BackButton';
@@ -9,7 +9,9 @@ import BuySell from "../components/BuySell";
 import ClientBalance from "../components/ClientBalance";
 
 function Operations() {
-  const { wantedStock } = useProvider();
+  const { wantedStock, stockList, clientData } = useProvider();
+
+  useEffect(() => {}, [stockList, wantedStock, clientData]);
   
   return (
     <>
