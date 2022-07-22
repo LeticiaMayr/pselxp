@@ -27,6 +27,7 @@ function BuySell() {
         icon: 'error',
         title: 'Oops...',
         text: 'Insira algum valor adequado!',
+        timer: 2500,
       });
     };
 
