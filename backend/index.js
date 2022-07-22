@@ -91,7 +91,14 @@ app.put('/stocks/:id', async (request, response) => {
   // This part makes necessary changes on clients
 
   const wantedClient = clients.find((client) => client.id === clientId);
-  wantedClient.stocks[id] += purchaseAmount;
+
+  if (!wantedClient.stocks[id]) {
+    wantedClient.stocks[id] = purchaseAmount;
+  };
+
+  if(wantedClient.stocks[id]) {
+    wantedClient.stocks[id] += purchaseAmount;
+  };
 
   const newClientFile = clients.map((client) => {
     if (client.id === clientId) {
