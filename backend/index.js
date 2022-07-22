@@ -104,6 +104,8 @@ app.put('/stocks/:id', async (request, response) => {
     wantedClient.money -= purchaseAmount * wantedStock.value;
   };
 
+  console.log(wantedClient);
+
   const newClientFile = clients.map((client) => {
     if (client.id === clientId) {
       return wantedClient;
@@ -113,7 +115,7 @@ app.put('/stocks/:id', async (request, response) => {
 
   await updateClientAccount(newClientFile);
 
-  response.status(200).send(wantedStock);
+  response.status(200).send({ wantedStock, wantedClient });
 });
 
 app.listen(PORT, () => {
