@@ -3,11 +3,13 @@ import Header from "../components/Header";
 import StockList from "../components/StockList";
 import ClientStockList from "../components/ClientStockList";
 import DepositWithdraw from "../components/DepositWithdraw";
+import ClientBalance from "../components/ClientBalance";
 
 function Stocks() {
   return (
     <>
       <Header />
+      <ClientBalance />
       <div>
         ações
       </div>

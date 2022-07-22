@@ -3,10 +3,10 @@ import { useProvider } from '../context/provider';
 import Header from '../components/Header';
 import BackButton from '../components/BackButton';
 import ConfirmButton from '../components/ConfirmButton';
+import ClientBalance from '../components/ClientBalance';
 
 function Account() {
   const {
-    balance,
     value, setValue,
     setSelectedService,
    } = useProvider()
@@ -18,9 +18,7 @@ function Account() {
   return (
     <>
       <Header/>
-      <div>
-        Saldo em conta: R$ {balance}
-      </div>
+      <ClientBalance />
       <div>
         <button
           id='deposit'
