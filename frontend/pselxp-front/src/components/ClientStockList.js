@@ -16,19 +16,19 @@ function ClientStockList() {
   }, [clientData.stocks, stockList, clientData]);
 
   return (
-    <table>
+    <table className='table'>
       <thead>
         <tr>
-          <th>
+          <th scope="col">
             Ação
           </th>
-            <th>
+            <th scope="col">
             Qtde
           </th>
-          <th>
+          <th scope="col">
             Valor (R$)
           </th>
-          <th>
+          <th scope="col">
             Negociar
           </th>
         </tr>

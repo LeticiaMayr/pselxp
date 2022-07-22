@@ -6,13 +6,13 @@ function TableLine(props) {
 
   return (
     <tr>
-      <td>
+      <th scope="row" className='text-center text-bg-warning rounded'>
         {ticker}
-      </td>
-      <td>
+      </th>
+      <td className='text-center text-bg-purple rounded'>
         {available}
       </td>
-      <td>
+      <td className='text-center text-bg-dark rounded'>
         {value}
       </td>
       <Negotiate

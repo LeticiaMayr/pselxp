@@ -6,7 +6,7 @@ function Negotiate(props) {
   const { available, ticker, value, clientStock, id } = props;
   const navigate = useNavigate();
 
-  const { setWantedStock } = useProvider()
+  const { setWantedStock } = useProvider();
 
   function handleClick(event) {
     event.preventDefault();
@@ -24,10 +24,12 @@ function Negotiate(props) {
     <button
       onClick={ handleClick }
     >
-      <span>
+      <span className='text-center'>
         C
       </span>
-      {clientStock ? <span>/V</span> : null}
+      <span className=' text-center ps-3'>
+        V
+      </span>
     </button>
   );
 };
