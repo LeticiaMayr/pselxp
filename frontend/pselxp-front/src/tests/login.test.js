@@ -1,6 +1,7 @@
 import React from 'react';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
+import '@testing-library/jest-dom/extend-expect';
 const { screen } = require('@testing-library/react');
 
 describe('Tests application login page.', () => {
