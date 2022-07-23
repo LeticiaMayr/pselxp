@@ -34,9 +34,7 @@ function Stocks() {
           </Container>
         </Container>
       </Row>
-      <Container className='d-flex justify-content-center'>
-        <DepositWithdraw />
-      </Container>
+      <DepositWithdraw />
     </>
   );
 };

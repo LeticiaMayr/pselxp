@@ -10,13 +10,15 @@ function DepositWithdraw() {
     navigate('/account');
   }
   return (
-    <Button
-      className='align-self-center justify-content-center text-bg-dark w-50'
-      type='submit'
-      onClick={ handleClick }
-    >
-      Deposito/Retirada
-    </Button>
+    <div className='text-center'>
+      <Button
+        className='text-bg-dark w-50'
+        type='submit'
+        onClick={ handleClick }
+        >
+        Deposito/Retirada
+      </Button>
+    </div>
   );
 };
 
