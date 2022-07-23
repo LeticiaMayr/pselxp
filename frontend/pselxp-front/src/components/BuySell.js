@@ -5,7 +5,7 @@ import swal from "sweetalert";
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { balance, wantedStock, clientData, setStockList, setClientData, stockList } = useProvider();
+  const { balance, setBalance, wantedStock, setWantedStock, clientData, setStockList, setClientData, stockList } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy-input') {
@@ -38,19 +38,23 @@ function BuySell() {
             clientId: clientData.id,
           }).then(res => {
             console.log(res.data);
+            console.log(wantedStock);
+            setWantedStock({...res.data.wantedStock, clientStock: true });
+            setBalance(res.data.wantedClient.money);
           }).catch(err => {
             console.log(err);
           });
       };
 
-      if (target.id === 'sell' && clientData.stocks[wantedStock.id] > assetManipulation[target.id]) {
-        console.log(`VENDY ${assetManipulation.sell} AÇÕES`);
+      if (target.id === 'sell' && clientData.stocks[wantedStock.id] >= assetManipulation[target.id]) {
         axios.put(`http://localhost:3009/stocks/${wantedStock.id}`,
           {
             purchaseAmount: parseInt(- assetManipulation.sell),
             clientId: clientData.id,
           }).then(res => {
-            console.log(res.data);
+            const stillHasAsset = res.data.wantedClient.stocks[wantedStock.id] ? true : false;
+            setWantedStock({...res.data.wantedStock, clientStock: stillHasAsset });
+            setBalance(res.data.wantedClient.money);
           }).catch(err => {
             console.log(err);
           });

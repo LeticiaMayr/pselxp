@@ -27,13 +27,13 @@ function Account() {
     <>
       <Header/>
       <Container>
-        <Form className='d-flex align-items-center min-vh-100'>
+        <Form className='d-flex h-100'>
           <Col>
-            <Row className='text-bg-dark mb-3'>
+            <Row className='text-bg-dark mb-5'>
               <p>Serviço escolhido: {showService}</p>
               {isNaN(toSum) ? null : <p>Saldo pós transação: {parseFloat(balance) + parseFloat(toSum)}</p>}
             </Row>
-            <Row>
+            <Row className='mb-5'>
               <Col className='d-flex justify-content-center rounded'>
                 <Button
                   id='deposit'
@@ -51,7 +51,7 @@ function Account() {
                 </Button>
               </Col>
             </Row>
-            <Row className='mt-3 mb-3'>
+            <Row className='mt-3 mb-5'>
               <input
                 className='rounded'
                 type='number'
@@ -61,7 +61,7 @@ function Account() {
                 value={ value }
               />
             </Row>
-            <Row>
+            <Row className='fixed-bottom'>
               <Col className='d-flex justify-content-center mb-3 rounded'>
                 <BackButton />
               </Col>
