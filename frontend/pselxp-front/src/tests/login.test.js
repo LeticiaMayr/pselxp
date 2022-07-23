@@ -41,5 +41,17 @@ describe('Tests application login page.', () => {
     expect(passwordInput).toHaveValue('de ser!!!!');
   });
 
-  // Found a problem with history manipulation, gotta check later.
+  // test('Checking if the button actually changes the route to /stocks.', () => { // Having a problem with changing routes history not working
+  //   renderWithRouter(<App />);
+
+  //   const emailInput = screen.getByPlaceholderText('E-mail');
+  //   const passwordInput = screen.getByPlaceholderText('Senha');
+
+  //   userEvent.type(emailInput, 'xpto@xpto.com');
+  //   userEvent.type(passwordInput, '123123123123');
+
+  //   const loginButton = screen.getByText('Usuário:');
+
+  //   expect(loginButton).toBeInTheDocument();
+  // });
 });
