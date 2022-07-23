@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Header from "../components/Header";
-import { useProvider } from "../context/provider";
+import Header from '../components/Header';
+import { useProvider } from '../context/provider';
 import BackButton from '../components/BackButton';
-import DepositWithdraw from "../components/DepositWithdraw";
-import StocksTableHead from "../components/StocksTableHead";
-import OperationsTableLine from "../components/OperationsTableLine";
-import BuySell from "../components/BuySell";
+import DepositWithdraw from '../components/DepositWithdraw';
+import StocksTableHead from '../components/StocksTableHead';
+import OperationsTableLine from '../components/OperationsTableLine';
+import BuySell from '../components/BuySell';
 import { Row } from 'react-bootstrap';
 
 function Operations() {
