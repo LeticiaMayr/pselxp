@@ -2,7 +2,7 @@ import React from 'react';
 import { useProvider } from '../context/provider';
 
 function NumberOfAsset() {
-  let { wantedStock } = useProvider();
+  const { wantedStock } = useProvider();
 
   return (
     <div>

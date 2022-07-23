@@ -7,6 +7,7 @@ import StocksTableHead from '../components/StocksTableHead';
 import OperationsTableLine from '../components/OperationsTableLine';
 import BuySell from '../components/BuySell';
 import { Row } from 'react-bootstrap';
+import NumberOfAsset from '../components/numberOfAsset';
 
 function Operations() {
   const { wantedStock, stockList, clientData } = useProvider();
@@ -31,6 +32,7 @@ function Operations() {
       </table>
       <BuySell />
       <DepositWithdraw />
+      <NumberOfAsset />
       <Row className='fixed-bottom pt-3'>
         <BackButton />
       </Row>
