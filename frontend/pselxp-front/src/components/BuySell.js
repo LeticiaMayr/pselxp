@@ -37,8 +37,6 @@ function BuySell() {
             purchaseAmount: parseInt(assetManipulation.buy),
             clientId: clientData.id,
           }).then(res => {
-            console.log(res.data);
-            console.log(wantedStock);
             setWantedStock({...res.data.wantedStock, clientStock: true });
             setBalance(res.data.wantedClient.money);
           }).catch(err => {

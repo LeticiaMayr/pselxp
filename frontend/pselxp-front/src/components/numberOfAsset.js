@@ -4,7 +4,7 @@ import { useProvider } from '../context/provider';
 function NumberOfAsset() {
   const { wantedStock, clientData } = useProvider();
 
-  console.log(wantedStock, clientData);
+  console.log(clientData);
 
   const total = clientData.stocks[wantedStock.id];
 
