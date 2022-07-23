@@ -8,10 +8,10 @@ function OperationsTableLine(props) {
       <th scope="row" className='text-center text-bg-warning rounded'>
         {ticker}
       </th>
-      <td className='text-center text-bg rounded'>
+      <td className='text-center rounded'>
         {available}
       </td>
-      <td className='text-center text-bg rounded'>
+      <td className='text-center text-bg-dark rounded'>
         {value}
       </td>
     </tr>

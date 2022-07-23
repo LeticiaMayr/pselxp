@@ -36,6 +36,7 @@ function Account() {
             <Row className='mb-5'>
               <Col className='d-flex justify-content-center rounded'>
                 <Button
+                  className='text-bg-success'
                   id='deposit'
                   onClick={ () => setSelectedService('deposit') }
                 >
@@ -44,6 +45,7 @@ function Account() {
               </Col>
               <Col className='d-flex justify-content-center rounded'>
                 <Button
+                  className='text-bg-danger'
                   id='withdraw'
                   onClick={ () => setSelectedService('withdraw') }
                   >
