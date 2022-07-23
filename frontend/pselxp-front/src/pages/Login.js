@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useProvider } from '../context/provider';
 import { Container, Form, Button, Col, Row } from 'react-bootstrap';
 import axios from "axios";
+import swal from 'sweetalert';
 
 function Login() {
   const navigate = useNavigate();
@@ -39,23 +40,32 @@ function Login() {
   function handleClick(event) {
     event.preventDefault();
     const now = new Date(); // Check a better way to store date later
-    localStorage.setItem('loginDateAndHour', JSON.stringify(now));
-    localStorage.setItem('lastUser', JSON.stringify(emailInput));
     axios.get(`http://localhost:3009/clients/${emailInput}`)
       .then(res => {
+        localStorage.setItem('loginDateAndHour', JSON.stringify(now));
+        localStorage.setItem('lastUser', JSON.stringify(emailInput));
         setClientData(res.data);
         setBalance(res.data.money);
+        navigate('/stocks');
       }).catch(err => {
         console.log(err);
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${err.response.data.message}`,
+        });
     });
     axios.get('http://localhost:3009/stocks')
       .then(res => {
         setStockList(res.data);
       }).catch(err => {
-        console.log(err);
+        swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: `Algo deu errado em nosso sistema! ${err.message}`,
+        });
     });
-    navigate('/stocks');
-  }
+  };
 
   return (
     <Container>
