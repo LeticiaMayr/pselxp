@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useProvider } from "../context/provider";
 import axios from "axios";
 import swal from "sweetalert";
+import { Container, Form, Button, Col, Row } from 'react-bootstrap';
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
@@ -82,12 +83,13 @@ function BuySell() {
     <form>
       <div>
         <label htmlFor='buy-input'>
-          <button
+          <Button
+            className='text-bg-success'
             id='buy'
             onClick={ handleClick }
           >
             Comprar
-          </button>
+          </Button>
           <input
             id='buy-input'
             type='number'
@@ -100,12 +102,13 @@ function BuySell() {
       {wantedStock.clientStock ? 
         <div>
           <label htmlFor='sell-input'>
-            <button
+            <Button
+              className='text-bg-danger'
               id='sell'
               onClick={ handleClick }
             >
               Vender
-            </button>
+            </Button>
             <input
               id='sell-input'
               type='number'
