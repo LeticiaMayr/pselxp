@@ -24,12 +24,13 @@ function Negotiate(props) {
   
   return (
     <button
+      className='rounded'
       onClick={ handleClick }
     >
-      <span className='text-bg-success text-center p-2 rounded-circle'>
+      <span className='text-bg-success text-center p-1 rounded-circle'>
         C
       </span>
-      <span className={`${sellColor}text-center p-2 rounded-circle`}>
+      <span className={`${sellColor}text-center p-1 rounded-circle`}>
         V
       </span>
     </button>

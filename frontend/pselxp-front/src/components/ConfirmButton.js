@@ -2,9 +2,12 @@ import React from "react";
 import { useProvider } from "../context/provider";
 import axios from "axios";
 import swal from "sweetalert";
+import { Button } from 'react-bootstrap'
 
 function ConfirmButton() {
-  const { balance, selectedService, value, clientData, setClientData } = useProvider();
+  const { balance, setBalance, selectedService, value, clientData, setClientData } = useProvider();
+
+  console.log(clientData);
 
   function handleAccount() {
     if (selectedService === 'withdraw' && balance < value) {
@@ -36,11 +39,12 @@ function ConfirmButton() {
     if (typeof value === 'string' && value !== '' && value > 0) {
 
       if (selectedService === 'deposit') {
-        const untreatedBalance = balance + parseFloat(value);
-        const newBalance = Math.round(untreatedBalance * 100)/100;
+        const untreatedBalance = parseFloat(balance) + parseFloat(value);
+        const newBalance = untreatedBalance.toFixed(2);
 
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
+          setBalance(res.data.money);
           setClientData(res.data);
           swal({
             icon: 'success',
@@ -53,11 +57,12 @@ function ConfirmButton() {
       };
 
       if (selectedService === 'withdraw' && balance > value) {
-        const untreatedBalance = balance - parseFloat(value);
-        const newBalance = Math.round(untreatedBalance * 100)/100;
+        const untreatedBalance = parseFloat(balance) - parseFloat(value);
+        const newBalance = untreatedBalance.toFixed(2);
 
         axios.put(`http://localhost:3009/account/${id}`, { newBalance })
         .then(res => {
+          setBalance(res.data.money);
           setClientData(res.data);
           swal({
             icon: 'success',
@@ -72,11 +77,11 @@ function ConfirmButton() {
   };
 
   return (
-    <button
+    <Button
       onClick={ handleAccount }
     >
       Confirmar
-    </button>
+    </Button>
   );
 };
 

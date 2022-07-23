@@ -11,16 +11,16 @@ function StockList() {
     <table className='table'>
       <thead>
         <tr>
-          <th scope="col">
+          <th scope="col" className='text-rigth'>
             Ação
           </th>
-          <th scope="col">
+          <th scope="col" className='text-rigth'>
             Qtde
           </th>
-          <th scope="col">
+          <th scope="col" className='text-rigth'>
             Valor (R$)
           </th>
-          <th scope="col">
+          <th scope="col" className='text-rigth'>
             Negociar
           </th>
         </tr>

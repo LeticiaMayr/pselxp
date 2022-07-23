@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap'
 
 function BackButton() {
   let navigate = useNavigate();
@@ -9,11 +10,11 @@ function BackButton() {
   }
 
   return (
-    <button
+    <Button
       onClick={ handleClick }
     >
       Voltar
-    </button>
+    </Button>
   );
 };
 

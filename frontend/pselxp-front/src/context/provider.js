@@ -18,7 +18,7 @@ export const GeneralProvider = (props) => {
         selectedService, setSelectedService,
         stockList, setStockList,
         clientData, setClientData,
-        wantedStock, setWantedStock
+        wantedStock, setWantedStock,
       }
     }>
       {props.children}
