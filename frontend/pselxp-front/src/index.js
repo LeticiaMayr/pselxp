@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <GeneralProvider>
+  <GeneralProvider>
+    <BrowserRouter>
       <App />
-    </GeneralProvider>
-  </BrowserRouter>
+    </BrowserRouter>
+  </GeneralProvider>
 );
