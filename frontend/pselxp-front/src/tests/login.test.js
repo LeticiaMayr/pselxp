@@ -40,4 +40,6 @@ describe('Tests application login page.', () => {
     expect(emailInput).toHaveValue(expectedRandomSentence);
     expect(passwordInput).toHaveValue('de ser!!!!');
   });
+
+  // Found a problem with history manipulation, gotta check later.
 });
