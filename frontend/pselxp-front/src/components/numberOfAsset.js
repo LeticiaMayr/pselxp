@@ -2,15 +2,13 @@ import React from 'react';
 import { useProvider } from '../context/provider';
 
 function NumberOfAsset() {
-  const { wantedStock, clientData } = useProvider();
+  const { totalOfWantedStock } = useProvider();
 
-  console.log(clientData);
-
-  const total = clientData.stocks[wantedStock.id];
+  console.log(totalOfWantedStock);
 
   return (
     <p className='text-bg-dark mt-5 rounded'>
-      Amount of this asset client has: {total}
+      Amount of this asset client has: {totalOfWantedStock}
     </p>
   );
 };

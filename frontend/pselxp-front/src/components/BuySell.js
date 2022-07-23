@@ -6,7 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { balance, setBalance, wantedStock, setWantedStock, clientData, setStockList, setClientData, stockList } = useProvider();
+  const { balance, setBalance, wantedStock, setWantedStock, clientData, setStockList, setClientData, stockList, setTotalOfWantedStock } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy-input') {
@@ -39,6 +39,8 @@ function BuySell() {
           }).then(res => {
             setWantedStock({...res.data.wantedStock, clientStock: true });
             setBalance(res.data.wantedClient.money);
+            console.log(res.data.wantedClient.stocks[res.data.wantedStock.id]);
+            setTotalOfWantedStock(res.data.wantedClient.stocks[res.data.wantedStock.id]);
           }).catch(err => {
             console.log(err);
           });
@@ -53,6 +55,8 @@ function BuySell() {
             const stillHasAsset = res.data.wantedClient.stocks[wantedStock.id] ? true : false;
             setWantedStock({...res.data.wantedStock, clientStock: stillHasAsset });
             setBalance(res.data.wantedClient.money);
+            console.log(res.data.wantedClient.stocks[res.data.wantedStock.id]);
+            setTotalOfWantedStock(res.data.wantedClient.stocks[res.data.wantedStock.id]);
           }).catch(err => {
             console.log(err);
           });
@@ -60,7 +64,6 @@ function BuySell() {
 
       axios.get(`http://localhost:3009/clients/${clientData.email}`)
         .then(res => {
-          console.log(res.data);
           setClientData(res.data);
         }).catch(err => {
           console.log(err);

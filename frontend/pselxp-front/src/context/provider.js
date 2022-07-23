@@ -9,6 +9,7 @@ export const GeneralProvider = (props) => {
   const [stockList, setStockList] = useState([]);
   const [clientData, setClientData] = useState({});
   const [wantedStock, setWantedStock] = useState({});
+  const [totalOfWantedStock, setTotalOfWantedStock] = useState(0);
 
   return (
     <mainContext.Provider value={
@@ -19,6 +20,7 @@ export const GeneralProvider = (props) => {
         stockList, setStockList,
         clientData, setClientData,
         wantedStock, setWantedStock,
+        totalOfWantedStock, setTotalOfWantedStock,
       }
     }>
       {props.children}

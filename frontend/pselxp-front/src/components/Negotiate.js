@@ -6,7 +6,7 @@ function Negotiate(props) {
   const { available, ticker, value, clientStock, id } = props;
   const navigate = useNavigate();
 
-  const { setWantedStock } = useProvider();
+  const { setWantedStock, clientData, setTotalOfWantedStock } = useProvider();
 
   function handleClick(event) {
     event.preventDefault();
@@ -17,6 +17,8 @@ function Negotiate(props) {
       value: value,
       clientStock: clientStock
     });
+    console.log(clientStock);
+    setTotalOfWantedStock(clientData.stocks[id]);
     navigate('/operations');
   }
 
