@@ -60,6 +60,7 @@ function BuySell() {
 
       axios.get(`http://localhost:3009/clients/${clientData.email}`)
         .then(res => {
+          console.log(res.data);
           setClientData(res.data);
         }).catch(err => {
           console.log(err);

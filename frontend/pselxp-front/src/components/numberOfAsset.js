@@ -9,7 +9,7 @@ function NumberOfAsset() {
   const total = clientData.stocks[wantedStock.id];
 
   return (
-    <p>
+    <p className='text-bg-dark mt-5 rounded'>
       Amount of this asset client has: {total}
     </p>
   );
