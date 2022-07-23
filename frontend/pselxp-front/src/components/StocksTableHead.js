@@ -3,13 +3,13 @@ import React from "react";
 function StocksTableHead() {
   return (
     <>
-      <th>
+      <th scope="col" className='text-center'>
         Ação
       </th>
-      <th>
+      <th scope="col" className='text-center'>
         Qtde
       </th>
-      <th>
+      <th scope="col" className='text-center'>
         Valor (R$)
       </th>
     </>

@@ -6,7 +6,7 @@ import DepositWithdraw from "../components/DepositWithdraw";
 import StocksTableHead from "../components/StocksTableHead";
 import OperationsTableLine from "../components/OperationsTableLine";
 import BuySell from "../components/BuySell";
-import { Container, Form, Button, Col, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 function Operations() {
   const { wantedStock, stockList, clientData } = useProvider();
@@ -16,8 +16,8 @@ function Operations() {
   return (
     <>
       <Header />
-      <h3>Comprar/Vender Ação</h3>
-      <table>
+      <h3 className='text-bg-secondary'>Comprar/Vender Ação</h3>
+      <table className='table'>
         <thead>
           <StocksTableHead />
         </thead>
