@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap'
 
 function BackButton() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleClick() {
     navigate(-1);
