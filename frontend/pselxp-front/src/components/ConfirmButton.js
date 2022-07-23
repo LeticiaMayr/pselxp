@@ -7,8 +7,6 @@ import { Button } from 'react-bootstrap'
 function ConfirmButton() {
   const { balance, setBalance, selectedService, value, clientData, setClientData } = useProvider();
 
-  console.log(clientData);
-
   function handleAccount() {
     if (selectedService === 'withdraw' && balance < value) {
       swal({
