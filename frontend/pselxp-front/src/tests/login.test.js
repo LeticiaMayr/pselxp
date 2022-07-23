@@ -35,7 +35,7 @@ describe('Tests application login page.', () => {
     userEvent.type(emailInput, randomSentence);
     userEvent.type(passwordInput, 'de ser!!!!');
 
-    const expectedRandomSentence = randomSentence.replaceAll(' ', '');
+    const expectedRandomSentence = randomSentence.replaceAll(' ', ''); // As the type of input is "e-mail" it wont let some inputs come from user, such as space
 
     expect(emailInput).toHaveValue(expectedRandomSentence);
     expect(passwordInput).toHaveValue('de ser!!!!');
