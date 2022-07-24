@@ -1,11 +1,12 @@
-import React from "react";
-import { useProvider } from "../context/provider";
-import TableLine from "./TableLine";
+import React from 'react';
+import { useProvider } from '../context/provider';
+import TableLine from './TableLine';
 
 function StockList() {
-  const {
-    stockList
-   } = useProvider();
+  const { stockList, clientStocks } = useProvider();
+
+
+  const notClientAssets = stockList.filter((stock) => !clientStocks.includes(stock));
 
   return (
     <table className='table'>
@@ -27,7 +28,7 @@ function StockList() {
       </thead>
       <tbody>
         {
-          stockList.map((stock) =>
+          notClientAssets.map((stock) =>
             (
               <TableLine
                 key={stock.id}

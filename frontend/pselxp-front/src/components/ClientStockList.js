@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useProvider } from "../context/provider";
 import TableLine from "./TableLine";
 
 function ClientStockList() {
-  const [clientStocks, setClientStocks] = useState([]);
 
   const {
     clientData,
-    stockList
+    stockList,
+    clientStocks, setClientStocks,
   } = useProvider();
 
   useEffect(() => {
     const possessedStocks = clientData.stocks ? Object.keys(clientData.stocks).map((key) => parseInt(key)) : [] // Ids come as strings so had to add this extra step
     setClientStocks(stockList.filter((stock) => possessedStocks.includes(stock.id)));
-  }, [clientData.stocks, stockList, clientData]);
+  }, [clientData.stocks, stockList, clientData, setClientStocks]);
 
   return (
     <table className='table'>
