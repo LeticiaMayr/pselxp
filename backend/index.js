@@ -34,6 +34,7 @@ app.get('/clients/:email', async (request, response) => {
   const clients = await getClients();
   const wantedClient = clients.filter((client) => client.email === (email))[0];
   if (wantedClient) response.status(200).send(wantedClient);
+  if (!wantedClient) response.status(404).send({ message: 'Cliente não encontrado! Verifique e-mail e senha.' });
 });
 
 app.get('/stocks', async (_request, response) => {
@@ -53,9 +54,10 @@ app.put('/account/:id', async (request, response) => {
   const { newBalance } = request.body;
   const clients = await getClients();
 
+  
   const wantedClient = clients.find((client) => client.id === parseInt(id));
-  wantedClient.money = newBalance;
-
+  wantedClient.money = parseFloat(newBalance);
+  
   const newClientFile = clients.map((client) => {
     if (client.id === id) {
       return wantedClient;
@@ -92,8 +94,6 @@ app.put('/stocks/:id', async (request, response) => {
 
   const wantedClient = clients.find((client) => client.id === clientId);
 
-  console.log(wantedClient);
-
   if (!wantedClient.stocks[id]) {
     wantedClient.stocks[id] = purchaseAmount;
     wantedClient.money += purchaseAmount * wantedStock.value;
@@ -103,8 +103,6 @@ app.put('/stocks/:id', async (request, response) => {
     wantedClient.stocks[id] += purchaseAmount;
     wantedClient.money -= purchaseAmount * wantedStock.value;
   };
-
-  console.log(wantedClient);
 
   const newClientFile = clients.map((client) => {
     if (client.id === clientId) {
