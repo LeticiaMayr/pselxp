@@ -8,7 +8,7 @@ function NumberOfAsset() {
 
   return (
     <p className='text-bg-dark mt-5 rounded'>
-      Amount of this asset client has: {totalOfWantedStock}
+      Quantidade de ações possuída pelo cliente: {totalOfWantedStock}
     </p>
   );
 };
