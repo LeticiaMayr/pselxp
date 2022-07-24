@@ -52,9 +52,9 @@ O projeto possui 2 partes, uma contendo uma API que lê os dados de 2 arquivos .
 
 ### Como usar?
 
-- Clone o repositório para a sua máquina local.
-- Navegue até o diretório backend e nela use "npm run dev" para subir a simulação da API da bolsa.
-- Em outro terminal, navegue até o diretório pselxp-front e use "npm start" para abrir a aplicação funcionando.
+- Clone o repositório para a sua máquina local. `git clone git@github.com:LeticiaMayr/pselxp.git`
+- Navegue até o diretório backend com `cd backend` e nela instale as dependências com `npm install` e logo depois use `npm run dev` para subir a simulação da API da bolsa com o nodemon.
+- Em outro terminal, navegue até o diretório pselxp-front e use `npm install` para instalar as dependências e depois `npm start` para abrir a aplicação funcionando. (`cd frontend && cd pselxp-front` saindo da pasta raiz do projeto).
 
 ---
 
