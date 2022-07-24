@@ -46,7 +46,7 @@ A prioridade era que as telas fossem funcionais e que o banco de dados fictício
 
 O projeto possui 2 partes, uma contendo uma API que lê os dados de 2 arquivos .json e outra com a aplicação react que realiza o front, numa estrutura parecida com a abaixo:
 
-**Aqui ficará a imagem das pastas**
+![Estrutura das pastas](./readmeImages/dir.jpeg)
 
 ---
 
@@ -60,10 +60,10 @@ O projeto possui 2 partes, uma contendo uma API que lê os dados de 2 arquivos .
 
 ### Features
 
-<details>
-  - Imagem da página de login
-  - Imagem da página de ações
-</details>
+![Página de login](./readmeImages/login.png)
+![Página de ações](./readmeImages/stocks.png)
+![Página da conta](./readmeImages/account.png)
+![Página de operações](./readmeImages/operations.png)
 
 ---
 
