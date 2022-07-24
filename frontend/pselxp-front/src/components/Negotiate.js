@@ -17,7 +17,6 @@ function Negotiate(props) {
       value: value,
       clientStock: clientStock
     });
-    console.log(clientStock);
     setTotalOfWantedStock(clientStock ? clientData.stocks[id] : 0);
     navigate('/operations');
   }

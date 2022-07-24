@@ -4,8 +4,6 @@ import { useProvider } from '../context/provider';
 function NumberOfAsset() {
   const { totalOfWantedStock } = useProvider();
 
-  console.log(totalOfWantedStock);
-
   return (
     <p className='text-bg-dark mt-5 rounded'>
       Quantidade de ações possuída pelo cliente: {totalOfWantedStock}

@@ -39,6 +39,8 @@ function BuySell() {
           }).then(res => {
             setWantedStock({...res.data.wantedStock, clientStock: true });
             setBalance(res.data.wantedClient.money);
+            console.log(res.data.wantedStock.id);
+            console.log(res.data.wantedClient.stocks);
             console.log(res.data.wantedClient.stocks[res.data.wantedStock.id]);
             setTotalOfWantedStock(res.data.wantedClient.stocks[res.data.wantedStock.id]);
           }).catch(err => {
