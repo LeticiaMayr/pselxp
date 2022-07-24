@@ -8,6 +8,12 @@ Este repositório contem instruções e dados sobre a entrega da aluna Letícia 
 
 Era necessário desenvolver uma aplicação de front-end que simulasse um aplicativo de bolsa de valores, com telas de login, depósito/saque numa conta digital, display das ações e uma de compra/venda de ações.
 
+Optei por começar por uma simulação de API, visto que as que encontrei online disponibilizavam "excesso" de informações. A ideia era ir atualizando-a conforme fosse necessário e optei por fazer 2 arquivos .json que simulassem um banco de dados. Um destes arquivos contem as informações das pessoas usuárias como email e usuário, já o outro o das ações como quantidade disponível para compra e o valor da unidade.
+
+Como a ideia era focar no front, fui fazendo algumas alterações na API conforme a necessidade do consumo da aplicação e alguns detlahes como arquitetura das pastas, JWT e afins foram "pulaos". O front começou pela tela de login, que faz algumas verificações e ao usuário "inputar" dados adequados, faz as requisições necessária para o consumo da página de ações. Algumas alterações foram feitas na ideia de design pensando no conforto da pessoa usuária (cliente), um exemplo é disponibilizar o saldo de sua conta em todas as páginas.
+
+A prioridade era que as telas fossem funcionais e que o banco de dados fictício não fosse alterado de maneira incorreta. Como CSS "seco" demanda muito tempo, uma vez que consegui alguma satisfação nas funcionalidades resolvi aprender sobre o bootstrap e o sweet alert, os quais nunca tinha usado, para que o design fosse melhorado.
+
 ---
 
 ### Principais Tecnologias utilizadas
