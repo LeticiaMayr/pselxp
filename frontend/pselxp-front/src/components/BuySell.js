@@ -6,7 +6,9 @@ import { Form, Button } from 'react-bootstrap';
 
 function BuySell() {
   const [assetManipulation, setAssetManipulation] = useState({buy: 0, sell: 0});
-  const { balance, setBalance, wantedStock, setWantedStock, clientData, setStockList, setClientData, stockList, setTotalOfWantedStock } = useProvider();
+  const { balance, setBalance, wantedStock,
+    setWantedStock, clientData, setStockList, setClientData,
+    stockList, clientStocks, setClientStocks, setTotalOfWantedStock } = useProvider();
 
   function handleChange({ target }) {
     if (target.id === 'buy-input') {
@@ -54,6 +56,7 @@ function BuySell() {
             const stillHasAsset = res.data.wantedClient.stocks[wantedStock.id] ? true : false;
             setWantedStock({...res.data.wantedStock, clientStock: stillHasAsset });
             setTotalOfWantedStock(res.data.wantedClient.stocks[res.data.wantedStock.id]);
+            setClientStocks(clientStocks.filter((stock) => stock.id !== wantedStock.id));
           }).catch(err => {
             console.log(err);
           });
